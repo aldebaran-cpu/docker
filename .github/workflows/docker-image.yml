@@ -33,7 +33,7 @@ jobs:
 
     - name: Push Docker Image
       run: 
-           docker push -t miguelito2524/docker-grahql:0.0.2 .
+           docker push -t miguelito2524/docker-grahql:0.0.2 
 
 
 
