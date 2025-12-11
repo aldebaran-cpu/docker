@@ -22,7 +22,7 @@ jobs:
       uses: PaulHatch/semantic-version@v4.0.3
       with: 
         major_pattern: "major:"
-        minor_pattern: "feat"
+        minor_pattern: "feat:"
         format: "${major}.${minor}.${patch}-prerelease${increment}"
       id: version
 
@@ -32,10 +32,10 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         NEW_VERSION: ${{ steps.version.outputs.version }}
         
-      run:
+      run: |
         # echo "Iniciando login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "New version:$NEW_VERSION!!!!!!!!"
+        echo "New version: $NEW_VERSION!!!!!!!!"
         # echo "Finalizando login" 
       
     # - name: Build Docker Image
